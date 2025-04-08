@@ -22,17 +22,17 @@ mat = OBEMatrix(3)
 # Operasi E₁: Tukar baris 1 dan 2
 E, lbl = mat.swap_rows(0, 1)
 print(mat.latex(E, lbl))          # Matriks elementer E₁
-print(mat.latex(mat.apply(E), f"{lbl}A"))  # Hasil perkalian E₁A
+print(mat.latex(mat.apply_operation(E), f"{lbl}A"))  # Hasil perkalian E₁A
 
 # Operasi E₂: Skala baris 1 dengan 2
 E2, lbl2 = mat.scale_row(0, 2)
 print(mat.latex(E2, lbl2))
-print(mat.latex(mat.apply(E2), f"{lbl2}A"))
+print(mat.latex(mat.apply_operation(E2), f"{lbl2}A"))
 
 # Operasi E₃: Tambah -3×baris 1 ke baris 3
 E3, lbl3 = mat.add_rows(0, 2, -3)
 print(mat.latex(E3, lbl3))
-print(mat.latex(mat.apply(E3), f"{lbl3}A"))
+print(mat.latex(mat.apply_operation(E3), f"{lbl3}A"))
 ```
 
 ### 🧾 Contoh Output (LaTeX string)
@@ -65,13 +65,3 @@ E_3A = \left[\begin{matrix}a_{1,1} & a_{1,2} & a_{1,3}\\a_{2,1} & a_{2,2} & a_{2
 
 MIT License.
 ```
-
----
-
-Setelah ini kamu bisa:
-
-1. **Copy isi di atas**
-2. Buka file `README.md` di GitHub → klik 🖉 edit → paste
-3. Commit dengan pesan seperti: `Update README with full example and usage`
-
-Kalau kamu juga mau saya bantu siapkan isi `example.ipynb`, tinggal bilang!
