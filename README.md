@@ -86,4 +86,4 @@ display(Math(mat.latex(E3, lbl3)))
 display(Math(mat.latex(mat.apply_operation(E3), f"{lbl3}A")))
 ```
 
-Output dari contoh di atas akan menampilkan representasi LaTeX dari matriks awal dan matriks setelah setiap operasi baris elementer diterapkan, beserta matriks elementer yang bersesuaian. Ini akan membantu dalam memahami bagaimana operasi-operasi ini memengaruhi matriks secara simbolik.
+Output dari contoh di atas akan menampilkan representasi $\LaTeX$ dari matriks awal dan matriks setelah setiap operasi baris elementer diterapkan, beserta matriks elementer yang bersesuaian. Ini akan membantu dalam memahami bagaimana operasi-operasi ini memengaruhi matriks secara simbolik.
