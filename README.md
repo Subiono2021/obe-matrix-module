@@ -63,35 +63,27 @@ Kelas `OBEMatrix` ini sangat berguna untuk:
 **Contoh Penggunaan:**
 
 ```python
-# Membuat matriks simbolik 3x3
-matrix_op = OBEMatrix(3)
-print("Matriks Awal:")
-print(matrix_op.latex(matrix_op.A))
+mat = OBEMatrix(4)  # Untuk 4x4, anda bisa ganti 4 dengan yang lainnya
+## mat = OBEMatrix(2)  # Untuk 2x2
+## mat = OBEMatrix(n)  # Untuk ukuran n x n
 
-# Operasi tukar baris 0 dan 1
-E1, label1 = matrix_op.swap_rows(0, 1)
-matrix_op.A = matrix_op.apply_operation(E1)
-print(f"\nMatriks Elementer {label1} (tukar baris 1 dan 2):")
-print(matrix_op.latex(E1, label=label1))
-print("\nMatriks A setelah operasi:")
-print(matrix_op.latex(matrix_op.A))
+# Operasi E₁: Tukar baris 1 dan 2 bisa diganti sesuai keinginan
+E, lbl = mat.swap_rows(0, 1)
 
-# Operasi skala baris 1 dengan faktor k
-k = sp.Symbol('k')
-E2, label2 = matrix_op.scale_row(1, k)
-matrix_op.A = matrix_op.apply_operation(E2)
-print(f"\nMatriks Elementer {label2} (skala baris 2 dengan k):")
-print(matrix_op.latex(E2, label=label2))
-print("\nMatriks A setelah operasi:")
-print(matrix_op.latex(matrix_op.A))
+# Operasi E₂: Skala baris 1 dengan 2
+E2, lbl2 = mat.scale_row(0, 2)
 
-# Operasi tambah 2 kali baris 0 ke baris 2
-E3, label3 = matrix_op.add_rows(0, 2, 2)
-matrix_op.A = matrix_op.apply_operation(E3)
-print(f"\nMatriks Elementer {label3} (tambah 2 * baris 1 ke baris 3):")
-print(matrix_op.latex(E3, label=label3))
-print("\nMatriks A setelah operasi:")
-print(matrix_op.latex(matrix_op.A))
+# Operasi E₃: Tambah -3×baris 1 ke baris 3
+E3, lbl3 = mat.add_rows(0, 2, -3)
+
+# Tampilkan hasil dalam format LaTeX
+from IPython.display import display, Math
+display(Math(mat.latex(E, lbl)))
+display(Math(mat.latex(mat.apply_operation(E), f"{lbl}A")))
+display(Math(mat.latex(E2, lbl2)))
+display(Math(mat.latex(mat.apply_operation(E2), f"{lbl2}A")))
+display(Math(mat.latex(E3, lbl3)))
+display(Math(mat.latex(mat.apply_operation(E3), f"{lbl3}A")))
 ```
 
 Output dari contoh di atas akan menampilkan representasi LaTeX dari matriks awal dan matriks setelah setiap operasi baris elementer diterapkan, beserta matriks elementer yang bersesuaian. Ini akan membantu dalam memahami bagaimana operasi-operasi ini memengaruhi matriks secara simbolik.
